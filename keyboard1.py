@@ -14,15 +14,6 @@ def keyboardcapital (y):
     keyboard.send("delete")
     keyboard.write(y)
 
-def keyboardsingle (z):
-    keyboard.send("delete")
-    keyboard.write(z)
-
-def keyboardsinglecap (j):
-    keyboard.send("delete")
-    keyboard.send("delete")
-    keyboard.write(j)
-
 def keyboardspecialsend (t):
     keyboard.send("delete")
     keyboard.send(t)

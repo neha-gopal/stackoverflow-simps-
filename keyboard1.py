@@ -27,18 +27,10 @@ def keyboardspecialsend (t):
     keyboard.send("delete")
     keyboard.send(t)
 
-def keyboardtripleCAP (r):
+def keyboardspecialprint (g):
     keyboard.send("delete")
     keyboard.send("delete")
-    keyboard.send("delete")
-    keyboard.send("delete")
-    keyboard.write(r)
-
-def keyboardtriple (e):
-    keyboard.send("delete")
-    keyboard.send("delete")
-    keyboard.send("delete")
-    keyboard.write(e)
+    keyboard.write(g)
 
 def setup():
 
@@ -68,7 +60,7 @@ def setup():
     keyboard.add_hotkey("d+s", lambda: keyboard1("w"))
     keyboard.add_hotkey("d+a", lambda: keyboard1("x"))
     keyboard.add_hotkey("s+a", lambda: keyboard1("y"))
-    keyboard.add_hotkey("f+k+l", lambda: keyboardsingle("z"))
+    keyboard.add_hotkey("a+space", lambda: keyboard1("z"))
 
 
     #uppercase
@@ -98,12 +90,19 @@ def setup():
     keyboard.add_hotkey("d+s+ space", lambda: keyboardcapital("W"))
     keyboard.add_hotkey("d+a+ space", lambda: keyboardcapital("X"))
     keyboard.add_hotkey("s+a+ space", lambda: keyboardcapital("Y"))
-    keyboard.add_hotkey("f+k+l+ space", lambda: keyboardsinglecap("Z"))
+    keyboard.add_hotkey("f+space", lambda: keyboardspecialprint("Z"))
 
     #special characters
 
     keyboard.add_hotkey(";", lambda: keyboardspecialsend("delete"))
     keyboard.add_hotkey(";+space", lambda: keyboardspecialsend("tab"))        
-
-    print("hi")
+    keyboard.add_hotkey("l+ space", lambda: keyboardspecialprint("."))
+    keyboard.add_hotkey("k + space", lambda: keyboardspecialprint(","))
+    keyboard.add_hotkey("s+ space", lambda: keyboardspecialprint("!"))
+    keyboard.add_hotkey("d+ space", lambda: keyboardspecialprint("?"))
+    
     keyboard.wait()
+
+def teardown ():
+
+    keyboard.unhook_all_hotkeys()
